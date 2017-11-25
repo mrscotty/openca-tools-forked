@@ -893,20 +893,6 @@ rpmbuild:
                 rm -f $$i ; \
         done
 	@echo "Done."
-	@echo -n "Creating spec file ... " ; \
-	filename=openca-tools.spec.orig ; \
-	if [ -e "contrib/$$filename" ] ; then \
-		echo "($$filename)"; \
-		cat "contrib/$$filename" | \
-			sed -e "s/\@VERSION\@/$(VERSION)/g" | \
-			sed -e "s/\@MINOR\@/$(MINOR)/g" | \
-			sed -e "s/\@PKGNAME\@/$(PKGNAME)/g" | \
-			sed -e "s|\@BUILDROOT\@|/var/tmp/$(PKGNAME)-%{ver}-root|g" > \
-			"contrib/openca-tools.spec" ; \
-	else \
-		echo "contrib/$$filename ... not found" ; \
-		exit 1 ; \
-	fi ; \
 	make -f $(MAKEFILE) dist ; \
 	echo "Building RPM package(s)... " ; \
 	echo "%_topdir /var/tmp/rpm" > ~/.rpmmacros ; \
