@@ -53,7 +53,6 @@ AUX_DIST = \
 EXTRA_SCRIPTS = \
 	contrib/autogen.sh \
 	contrib/build-rpm.sh \
-	contrib/openca-tools.spec.orig \
 	contrib/openca-tools.spec
 
 INCLUDE_DIST = \
